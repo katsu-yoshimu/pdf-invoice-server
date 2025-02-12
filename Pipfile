@@ -3,12 +3,5 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 name = "pypi"
  
-[packages]
-requests = "*"
-lxml = "*"
-selenium = "*"
-flask = "*"
-webdriver-manager = "*"
- 
 [requires]
 python_version = "3.12"
