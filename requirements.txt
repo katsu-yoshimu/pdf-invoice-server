@@ -1,0 +1,5 @@
+fastapi-slim
+uvicorn
+filetype
+google-generativeai
+python-multipart

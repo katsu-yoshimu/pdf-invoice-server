@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "routes": [
+    {
+      "src": "/api/exctract_invoice(.*)",
+      "dest": "api/exctract_invoice.py"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "api/exctract_invoice.py"
+    }
+  ],
+  "functions": {
+    "api/exctract_invoice.py": {
+      "maxDuration": 300
+    }
+  }
+}
