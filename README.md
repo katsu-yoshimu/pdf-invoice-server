@@ -35,9 +35,9 @@ Vercel 上で動作する PDF 請求書を AI で読込み情報抽出するた�
 
 3. **ブラウザで以下のURLでアクセス:**
 
-   [https://pdf-invoice-server-katsu-yoshimus-projects.vercel.app/docs](https://pdf-invoice-server-katsu-yoshimus-projects.vercel.app/docs)
+   [https://pdf-invoice-server.vercel.app/docs](https://pdf-invoice-server.vercel.app/docs)
 
-   注意：「pdf-invoice-server-katsu-yoshimus-projects」は1.の結果で書き替えてください。
+   注意：「pdf-invoice-server」は1.の結果で書き替えてください。
 
 4. このページからWebAPIの実行できる
 
