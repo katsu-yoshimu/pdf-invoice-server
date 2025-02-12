@@ -15,8 +15,8 @@ Vercel 上で動作する PDF 請求書を AI で読込み情報抽出するた�
 ## 環境構築
 
 前提：**Gemini APIキー**取得済。**Vercel**アカウント登録済。
-　　　Gemini APIキーの取得方法は参考リンクを参照ください。
-　　　Vercelアカウントの登録方法は・・・・を参照ください。
+　　　- Gemini APIキーの取得方法は参考リンクを参照ください。
+　　　- Vercelアカウントの登録方法は・・・・を参照ください。
 
 1. **Vercel & Github 新規追加:**
 
@@ -26,12 +26,12 @@ Vercel 上で動作する PDF 請求書を AI で読込み情報抽出するた�
 
 2. **GeminiAPIキー設定:**
 
-    上メニュー「Settings」をクリック
-    左メニュー「Environment Variables」をクリック
-    「key」に「GEMINI_API_KEY」を入力
-    「Value」に{Geimini APIキー値}を入力
-    「Save」ボタンをクリック
-    「再デプロイ」を実行にて有効となる
+    - 上メニュー「Settings」をクリック
+    - 左メニュー「Environment Variables」をクリック
+    - 「key」に「GEMINI_API_KEY」を入力
+    - 「Value」に{Geimini APIキー値}を入力
+    - 「Save」ボタンをクリック
+    - 「Redeply」を実行にて有効となる
 
 3. **ブラウザで以下のURLでアクセス:**
 
