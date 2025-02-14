@@ -10,7 +10,7 @@
       "dest": "index.html"
     },
     {
-      "src": "/(.*)",
+      "src": "/docs(.*)",
       "dest": "api/exctract_invoice.py"
     }
   ],
