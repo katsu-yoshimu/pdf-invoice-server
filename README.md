@@ -1,4 +1,4 @@
-# pdf-invoice-server（作成中）
+# pdf-invoice-server
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fkatsu-yoshimu%2Fpdf-invoice-server)
 
@@ -11,12 +11,14 @@ Vercel 上で動作する PDF 請求書を AI で読込み情報抽出するた�
 - [ローカル環境構築](#ローカル環境構築)
 - [ローカル環境実行](#ローカル環境実行)
 - [ライセンス](#ライセンス)
+- [参考リンク](#参考リンク)
 
 ## 環境構築
 
-前提：**Gemini APIキー**取得済。**Vercel**アカウント登録済。
-　　　- Gemini APIキーの取得方法は参考リンクを参照ください。
-　　　- Vercelアカウントの登録方法は・・・・を参照ください。
+前提：**Gemini APIキー**取得済。**GitHub**アカウント登録済
+
+- Gemini APIキーの取得方法は[参考リンク](#参考リンク)を参照ください。
+- GitHub アカウントの登録方法は[参考リンク](#参考リンク)を参照ください。
 
 1. **Vercel & Github 新規追加:**
 
@@ -28,10 +30,11 @@ Vercel 上で動作する PDF 請求書を AI で読込み情報抽出するた�
 
     - 上メニュー「Settings」をクリック
     - 左メニュー「Environment Variables」をクリック
-    - 「key」に「GEMINI_API_KEY」を入力
-    - 「Value」に{Geimini APIキー値}を入力
-    - 「Save」ボタンをクリック
-    - 「Redeply」を実行にて有効となる
+       - 「key」に「GEMINI_API_KEY」を入力
+       - 「Value」に {Geimini APIキー値} を入力
+       - 「Save」ボタンをクリック
+       - 「Redeply」ボタンをクリック
+          - 「Redeply」ボタンをクリック ← この実行にて有効となる
 
 3. **ブラウザで以下のURLでアクセス:**
 
@@ -73,7 +76,7 @@ Vercel 上で動作する PDF 請求書を AI で読込み情報抽出するた�
    ```cmd
    cd pdf-invoice-server
    .venv\Scripts\activate
-   set GEMINI_API_KEY=（ここは取得したAPIキー値で置き換えてください） 
+   set GEMINI_API_KEY={Geimini APIキー値で置換してください} 
    python api/exctract_invoice.py
    ```
 
@@ -87,8 +90,17 @@ Vercel 上で動作する PDF 請求書を AI で読込み情報抽出するた�
 
 ライセンスは Apache2 License に準拠します。
 
-## 参考
+## 参考リンク
 
-- [Qiita 【完全無料】Gemini APIチュートリアル（所要時間10分） - APIキーの取得](https://qiita.com/zukki2/items/10bfeb1c4330aa18ff87#step1api%E3%82%AD%E3%83%BC%E3%81%AE%E5%8F%96%E5%BE%97)
+1. [Qiita 【完全無料】Gemini APIチュートリアル（所要時間10分） - APIキーの取得](https://qiita.com/zukki2/items/10bfeb1c4330aa18ff87#step1api%E3%82%AD%E3%83%BC%E3%81%AE%E5%8F%96%E5%BE%97)
 
-    Gemini APIキーの取得方法はここを参考にしてください。
+   Gemini APIキーの取得方法はここを参考にしてください。
+
+2. [GitHub でのアカウントの作成](https://docs.github.com/ja/get-started/start-your-journey/creating-an-account-on-github)
+
+   GitHub のアカウント作成方法ここを参考にしてください。<br/>
+   以下の補足事項も参考にしてください。
+   - メールアドレスが必要です。メールで lunch Code が連絡されます。
+   - 「How would you describe youself?」は「N/A」を選択してください。
+   - 「How many team members will be working with you?」は「Just me」を選択してください。
+   - 「What are the top 2 things you want to do with GitHub?」は適当に2つを選択してください。
