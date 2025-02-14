@@ -27,10 +27,6 @@ def validate_file(file_content: bytes) -> str:
         raise HTTPException(status_code=400, detail="PDFファイルを指定してください")
     return file_type.mime
 
-def encode_file_to_base64(file_content: bytes) -> str:
-    """ファイルをBase64エンコードする"""
-    return base64.standard_b64encode(file_content).decode("utf-8")
-
 def build_prompt(notes: Optional[str]) -> str:
     """プロンプトを構築する"""
     prompt = """この請求書PDFから項目を抽出して回答してください。
@@ -66,12 +62,6 @@ def extract_code_block(response_text):
         # コードブロックが見つからない場合はNoneを返す
         return None
 
-def extract_invoice_data(response_text: str) -> Optional[dict]:
-    """Geminiの回答結果から日付、請求元、金額を抽出する"""
-    # JSON形式のコードブロックを抽出
-    invoice_data = extract_code_block(response_text)
-    return json.loads(invoice_data)
-
 @app.post("/api/exctract_invoice/")
 async def exctract_invoice(
     file: UploadFile = File(...),
@@ -87,7 +77,7 @@ async def exctract_invoice(
         file_type = validate_file(file_content)
 
         # ファイルをBase64エンコード
-        doc_data = encode_file_to_base64(file_content)
+        doc_data = base64.standard_b64encode(file_content).decode("utf-8")
 
         # プロンプトを構築
         prompt = build_prompt(notes)
@@ -95,18 +85,25 @@ async def exctract_invoice(
         # Gemini API 呼び出し
         gemini_response = model.generate_content([{'mime_type': 'application/pdf', 'data': doc_data}, prompt])
 
+        ### maxDuration 有効性確認 ###
+        import time
+        time.sleep(15)
+        ### maxDuration 有効性確認 ###
+
         # 請求書データを抽出
-        invoice_data = extract_invoice_data(gemini_response.text)
+        # レスポンスのJSON形式のコードブロックを抽出
+        # JSON形式のコードブロックに日付、請求元、金額が設定されている
+        invoice_data = json.loads(extract_code_block(gemini_response.text))
 
         # レスポンス用のデータを作成
         response_data = {
             "invoice_data": invoice_data,
-            "notes": notes,
-            "filename": file.filename,
-            "file_size": file_size,
-            "file_type": file_type,
-            "gemini_prompt" : prompt,                     # 参考情報として追加
-            "gemini_response": gemini_response.to_dict()  # 参考情報として追加
+            "filename": file.filename,                    # 参考情報
+            "file_size": file_size,                       # 参考情報
+            "file_type": file_type,                       # 参考情報
+            "notes": notes,                               # 参考情報
+            "gemini_prompt" : prompt,                     # 参考情報
+            "gemini_response": gemini_response.to_dict()  # 参考情報
         }
 
         logger.info(f"File uploaded: {file.filename}, Size: {file_size} bytes, file_type: {file_type}, notes: {notes}")
@@ -121,4 +118,4 @@ async def exctract_invoice(
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("exctract_invoice:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run("exctract_invoice:app", host="0.0.0.0", port=8000)
