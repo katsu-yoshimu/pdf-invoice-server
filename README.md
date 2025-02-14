@@ -1,7 +1,5 @@
 # pdf-invoice-server
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fkatsu-yoshimu%2Fpdf-invoice-server)
-
 Vercel 上で動作する PDF 請求書を AI で読込み情報抽出するための WebAPI です。[環境構築](#環境構築)を参照して、Vercel環境構築してください。
 なお、ローカルPCでも動作させたい場合は[ローカル環境実行](#ローカル環境実行)を参照ください。
 
@@ -20,21 +18,28 @@ Vercel 上で動作する PDF 請求書を AI で読込み情報抽出するた�
 - Gemini APIキーの取得方法は[参考リンク](#参考リンク)を参照ください。
 - GitHub アカウントの登録方法は[参考リンク](#参考リンク)を参照ください。
 
-1. **Vercel & Github 新規追加:**
+1. **Vercel & Github 追加:**
 
    [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fkatsu-yoshimu%2Fpdf-invoice-server)
 
    上のボタンを押すと Vercel ページに遷移します。その後、Vercel & Github を追加します。
 
+   手順は以下のとおりです。
+   - 「Continue with GitHub」ボタンをクリック
+   - GitHub ユーザ名、パスワードを入力し「Sign in」ボタンをクリック
+   - 「Private Repository Name」に「pdf-invoice-server」を入力し「Create」ボタンをクリック
+   - しばらく待っている(30秒ぶらい)と「Congratulations!」が表示される。「Continue to Dashboard」ボタンをクリック
+   - 「Domains」記載されたドメインをクリックすると別ウインドウでTOP画面を表示
+   - URLに「/docs」を追加して「Enter」キーを入力するとWebAPIが実行できる画面を表示
+
 2. **GeminiAPIキー設定:**
 
+   手順は以下のとおりです。
     - 上メニュー「Settings」をクリック
     - 左メニュー「Environment Variables」をクリック
-       - 「key」に「GEMINI_API_KEY」を入力
-       - 「Value」に {Geimini APIキー値} を入力
-       - 「Save」ボタンをクリック
-       - 「Redeply」ボタンをクリック
-          - 「Redeply」ボタンをクリック ← この実行にて有効となる
+    - 「key」に「GEMINI_API_KEY」、「Value」に {Geimini APIキー値} を入力し、「Save」ボタンをクリック
+    - 「Redeply」ボタンをクリック
+    - 「Redeply」ボタンをクリック ← この実行にて有効となる
 
 3. **ブラウザで以下のURLでアクセス:**
 
@@ -42,7 +47,7 @@ Vercel 上で動作する PDF 請求書を AI で読込み情報抽出するた�
 
    注意：「pdf-invoice-server」は1.の結果で書き替えてください。
 
-4. このページからWebAPIの実行できる
+4. **このページからWebAPIの実行できる**
 
 ## ローカル環境構築
 
@@ -84,7 +89,7 @@ Vercel 上で動作する PDF 請求書を AI で読込み情報抽出するた�
 
    [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
 
-3. このページからWebAPIの実行できる
+3. **このページからWebAPIの実行できる**
 
 ## ライセンス
 
@@ -98,9 +103,10 @@ Vercel 上で動作する PDF 請求書を AI で読込み情報抽出するた�
 
 2. [GitHub でのアカウントの作成](https://docs.github.com/ja/get-started/start-your-journey/creating-an-account-on-github)
 
-   GitHub のアカウント作成方法ここを参考にしてください。<br/>
-   以下の補足事項も参考にしてください。
-   - メールアドレスが必要です。メールで lunch Code が連絡されます。
-   - 「How would you describe youself?」は「N/A」を選択してください。
-   - 「How many team members will be working with you?」は「Just me」を選択してください。
+   GitHub のアカウント作成方法ここを参考にしてください。
+
+   以下も参考にしてください。
+   - メールアドレスが必要です。「lunch Code」がメール通知されます。
+   - 「How would you describe youself?」は「N/A」を選択してください。必要に応じて変更してください。
+   - 「How many team members will be working with you?」は「Just me」を選択してください。必要に応じて変更してください。
    - 「What are the top 2 things you want to do with GitHub?」は適当に2つを選択してください。
