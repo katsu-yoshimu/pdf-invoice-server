@@ -85,11 +85,6 @@ async def exctract_invoice(
         # Gemini API 呼び出し
         gemini_response = model.generate_content([{'mime_type': 'application/pdf', 'data': doc_data}, prompt])
 
-        ### maxDuration 有効性確認 ###
-        import time
-        time.sleep(15)
-        ### maxDuration 有効性確認 ###
-
         # 請求書データを抽出
         # レスポンスのJSON形式のコードブロックを抽出
         # JSON形式のコードブロックに日付、請求元、金額が設定されている
