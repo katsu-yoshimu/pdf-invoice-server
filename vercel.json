@@ -6,6 +6,10 @@
       "dest": "api/exctract_invoice.py"
     },
     {
+      "src": "/",
+      "dest": "index.html"
+    },
+    {
       "src": "/(.*)",
       "dest": "api/exctract_invoice.py"
     }
