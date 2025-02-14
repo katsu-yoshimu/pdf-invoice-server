@@ -29,12 +29,13 @@ Vercel 上で動作する PDF 請求書を AI で読込み情報抽出するた�
    - GitHub ユーザ名、パスワードを入力し「Sign in」ボタンをクリック
    - 「Private Repository Name」に「pdf-invoice-server」を入力し「Create」ボタンをクリック
    - しばらく待っている(30秒ぶらい)と「Congratulations!」が表示される。「Continue to Dashboard」ボタンをクリック
-   - 「Domains」記載されたドメインをクリックすると別ウインドウでTOP画面を表示
-   - URLに「/docs」を追加して「Enter」キーを入力するとWebAPIが実行できる画面を表示
+   - 「Domains」記載されたドメインをクリックすると別ウインドウでTOP画面（「{"detail":"Not Found"}」と表示される画面）を表示
+   - URLに「/docs」を追加して「Enter」キーを入力するとWebAPIが実行できる画面を表示 ← ※注意※ 以下の Gemini APIキー設定 をするまでは実行（「Execute」ボタンをクリック）してもエラーとなります。
 
-2. **GeminiAPIキー設定:**
+2. **Gemini APIキー設定:**
 
    手順は以下のとおりです。
+    - 「Dashboard」を表示 ← 上記の 「Continue to Dashboard」ボタンをクリック にて表示された画面
     - 上メニュー「Settings」をクリック
     - 左メニュー「Environment Variables」をクリック
     - 「key」に「GEMINI_API_KEY」、「Value」に {Geimini APIキー値} を入力し、「Save」ボタンをクリック
@@ -45,7 +46,7 @@ Vercel 上で動作する PDF 請求書を AI で読込み情報抽出するた�
 
    [https://pdf-invoice-server.vercel.app/docs](https://pdf-invoice-server.vercel.app/docs)
 
-   注意：「pdf-invoice-server」は1.の結果で書き替えてください。
+   注意：「pdf-invoice-server」は 1. の結果で書き替えてください。
 
 4. **このページからWebAPIの実行できる**
 
