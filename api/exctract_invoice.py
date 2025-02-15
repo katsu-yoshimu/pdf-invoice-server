@@ -1,5 +1,5 @@
 from fastapi import FastAPI, File, UploadFile, Form, HTTPException
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, HTMLResponse
 from typing import Optional
 import logging
 import filetype
@@ -110,6 +110,24 @@ async def exctract_invoice(
     except Exception as e:
         logger.error(f"Unexpected error: {str(e)}")
         raise HTTPException(status_code=500, detail="Internal Server Error")
+
+@app.get("/")
+async def index():
+    html = """<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>pdf-inoice-server</title>
+    </head>
+    <body>
+        <h1>pdf-inoice-server</h1>
+        PDF請求書をAIで読込み情報抽出するAPIです。<br/>
+        使用方法は以下をご確認ください。
+        <li>
+            <a href="/docs">Swagger - API仕様</a>
+        </li>
+    </body>
+</html>"""
+    return HTMLResponse(content=html)
 
 if __name__ == "__main__":
     import uvicorn
