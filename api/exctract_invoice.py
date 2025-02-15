@@ -116,10 +116,10 @@ async def index():
     html = """<html>
     <head>
         <meta charset="utf-8"/>
-        <title>pdf-inoice-server</title>
+        <title>pdf-invoice-server</title>
     </head>
     <body>
-        <h1>pdf-inoice-server</h1>
+        <h1>pdf-invoice-server</h1>
         PDF請求書をAIで読込み情報抽出するAPIです。<br/>
         使用方法は以下をご確認ください。
         <li>
