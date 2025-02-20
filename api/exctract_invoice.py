@@ -18,7 +18,7 @@ logger = logging.getLogger(__name__)
 # Gemini APIの設定
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 genai.configure(api_key=GEMINI_API_KEY)
-model = genai.GenerativeModel("gemini-2.0-flash-exp")
+model = genai.GenerativeModel("gemini-2.0-flash")
 
 def validate_file(file_content: bytes) -> str:
     """ファイルの種類を検証し、MIMEタイプを返す"""
